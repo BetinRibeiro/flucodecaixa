@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  
+  <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="stylesheet" href="stilobase.css">
+  <link rel="stylesheet" href="stilo.css">
+  <script src="main.js" defer></script>
+</head>
+<style  type="text/css">
+  @media print{
+      .btn{
+           display: none;
+      }
+      .button{
+           display: none;
+      }
+      #noprint { display:none; } 
+  }
+    </style>
+<body>
+  <div class="py-5" id="tabela">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 d-flex justify-content-between">
+          <div class="text-left d-flex justify-content-between ">
+          <img class="img-fluid d-block mb-3 mx-auto" src="logo.png" width="50"><h1 class="mb-3">Controle Diário de Caixa</h1>
+           </div>
+          <h4 contenteditable="true" class="mb-3"></h4>
+       
+        </div>
+      </div>
+      <div class="row">
+
+        <h4 contenteditable="true" class="mb-3">Clique aqui e defina o nome da empresa</h4>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-3 col-6"><a class="btn btn-block my-1 btn-success"  id="adicionar"><i class="fa fa-plus fa-fw"></i>&nbsp;Entrada</a></div>
+            
+            <div class="col-md-3 col-12"><a class="btn btn-block my-1 btn-info"  id="imprimir"  onclick="window.print()"><i class="fa fa-print fa-fw"></i>&nbsp;Imprimir</a></div>
+            
+          </div>
+        </div>
+        <div class="col-md-6 text-right">
+          <form class="form-inline text-right justify-content-end my-1">
+            <div class="input-group">
+              <input type="date" class="form-control" id="inlineFormInputGroup" placeholder="Search">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive">
+            <table class="table" id="tabela">
+              <thead>
+                <tr>
+                  <th id="noprint">Alterar</th>
+                  <th>Descrição</th>
+                  <th>Entrada(R$)</th>
+                  <th>Saida(R$)</th>
+                  <th>Saldo(R$)</th>
+                  <th id="noprint">Deletar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a><i class="fa fa-pencil-square-o fa-fw text-warning fa-2x"></i></a></td>
+                  <td>Descrição</td>
+                  <td>0,00</td>
+                  <td>0,00</td>
+                  <td>0,00 </td>
+                  <td><a><i class="fa fa-fw fa-2x fa-trash text-danger"></i></a></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th colspan="2">Total</th>
+                  <th>0,00</th>
+                  <th>0,00</th>
+                  <th colspan="2">0,00</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-3 col-6"><a class="btn btn-block my-1 btn-success"  id="adicionar"><i class="fa fa-plus fa-fw"></i>&nbsp;Entrada</a></div>
+             <div class="col-md-9 col-6"></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-9 col-6">
+              
+            </div>
+            <div class="col-md-3 col-12"><a class="btn btn-block my-1 btn-danger" id="zerar"><i class="fa fa-trash fa-fw"></i>&nbsp;Zerar</a></div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5 d-none" id="formulario">
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Cadastro/Alteração</h4>
+              <form id="form">
+                <div class="form-group"> <label>Descrição</label> <input type="text"  data-index="new"  id="descricao" class="form-control" placeholder="Descrição"> </div>
+                <div class=" d-flex ">
+                  <div class="form-group"> <label>Valor</label> <input type="number" step="0.01" id="valor" class="form-control" placeholder="Valor"> </div>
+                  <!-- <div class="form-group"> <label>Entrada</label> <input   type="checkbox"  id="entrada" class="form-control" > </div> -->
+                </div>
+              </form>
+              <div class="row">
+                <div class="col-md-2 col-6"><button type="submit" id="salvar" class="btn btn-success my-1 btn-block">Salvar</button></div>
+                <div class="col-md-2 col-6"><button type="submit" id="cancelar" class="btn btn-danger my-1 btn-block">Cancelar</button></div>
+                <div class="col-md-6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+
+</html>
