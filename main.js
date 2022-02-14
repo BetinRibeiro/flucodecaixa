@@ -11,14 +11,14 @@ const formatarValor =(valor) =>{
     valor =parseFloat(valor).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     return String(valor)
 }
-const fecharFormulario = () => {
+const fecharFormulario = () => {    
+    totalEntradas =0 
+    totalSaidas =0 
+    saldo =0 
     atualizarTabela()
     document.getElementById('tabela').classList.remove('d-none')
     document.getElementById('formulario').classList.add('d-none')
     limparFormulario()
-    totalEntradas =0 
-    totalSaidas =0 
-    saldo =0 
 }
 const limparFormulario = () => {
     // const fields = document.querySelectorAll('.valor')
