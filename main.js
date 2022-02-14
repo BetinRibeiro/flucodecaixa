@@ -88,7 +88,6 @@ const criarLinha = (documento, index) => {
         <td class="text-danger">${formatarValor(documento.valor)}</td>
         `
     }
-        saldo += parseFloat(documento.valor)
         newRow.innerHTML += 
         `
         <td class="text-info">${formatarValor(saldo)}</td>
@@ -100,6 +99,8 @@ const criarLinha = (documento, index) => {
         </td>
        
     `
+        
+        saldo += parseFloat(documento.valor)
     document.querySelector('#tabela>tbody').appendChild(newRow)
 }
 const isValidFields = () => {
