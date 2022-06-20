@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="stilo.css">
   <script src="main.js" defer></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
 
 </head>
 <style  type="text/css">
@@ -157,7 +158,7 @@
     
     document.getElementById('tabela').classList.remove('d-none')
     document.getElementById('login').classList.add('d-none')
-    console.log("Encoded JWT ID token: " + response.credential);
+    console.log("Encoded JWT ID token: " + jwt_decode(response.credential));
   }
   window.onload = function () {
     google.accounts.id.initialize({
