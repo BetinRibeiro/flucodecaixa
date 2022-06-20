@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="stilobase.css">
   <link rel="stylesheet" href="stilo.css">
   <script src="main.js" defer></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
 </head>
 <style  type="text/css">
   @media print{
@@ -27,6 +29,15 @@
   <div class="py-5" id="tabela">
     <div class="container">
       <div class="row">
+        <div id="buttonDiv"></div> 
+      </div> 
+    </div>
+  </div> 
+  <div class="py-5" id="tabela">
+    <div class="container">
+
+
+      <div class="row">
         <div class="col-md-12 d-flex justify-content-between">
           <div class="text-left d-flex justify-content-between ">
           <img class="img-fluid d-block mb-3 mx-auto" src="logo.png" width="50"><h1 class="mb-3">Controle Diário de Caixa</h1>
@@ -42,7 +53,7 @@
           <div class="row">
             <div class="col-md-3 col-6"><a class="btn btn-block my-1 btn-success"  id="adicionar"><i class="fa fa-plus fa-fw"></i>&nbsp;Entrada</a></div>
             
-            <div class="col-md-3 col-6"><a class="btn btn-block my-1 btn-info"  id="imprimir"  onclick="window.print()"><i class="fa fa-print fa-fw"></i>&nbsp;Imprimir</a></div>
+            <div class="col-md-3 col-12"><a class="btn btn-block my-1 btn-info"  id="imprimir"  onclick="window.print()"><i class="fa fa-print fa-fw"></i>&nbsp;Imprimir</a></div>
             
           </div>
         </div>
@@ -94,7 +105,7 @@
         <div class="col-md-6">
           <div class="row">
             <div class="col-md-3 col-6"><a class="btn btn-block my-1 btn-success"  id="adicionar"><i class="fa fa-plus fa-fw"></i>&nbsp;Entrada</a></div>
-             <div class="col-md-3 col-6"><a class="btn btn-block my-1 btn-danger" id="zerar"><i class="fa fa-trash fa-fw"></i>&nbsp;Zerar</a></div>
+             <div class="col-md-9 col-6"></div>
           </div>
         </div>
         <div class="col-md-6">
@@ -102,7 +113,7 @@
             <div class="col-md-9 col-6">
               
             </div>
-            
+            <div class="col-md-3 col-12"><a class="btn btn-block my-1 btn-danger" id="zerar"><i class="fa fa-trash fa-fw"></i>&nbsp;Zerar</a></div>
             
           </div>
         </div>
@@ -126,7 +137,7 @@
               <div class="row">
                 <div class="col-md-2 col-6"><button type="submit" id="salvar" class="btn btn-success my-1 btn-block">Salvar</button></div>
                 <div class="col-md-2 col-6"><button type="submit" id="cancelar" class="btn btn-danger my-1 btn-block">Cancelar</button></div>
-                <div class="col-md-6 col-6"></div>
+                <div class="col-md-6"></div>
               </div>
             </div>
           </div>
@@ -140,3 +151,20 @@
   </body>
 
 </html>
+
+<script>
+  function handleCredentialResponse(response) {
+    console.log("Encoded JWT ID token: " + response.credential);
+  }
+  window.onload = function () {
+    google.accounts.id.initialize({
+      client_id: "223160049290-61csiemh2j559upu6fl6p85d277jn7jv.apps.googleusercontent.com",
+      callback: handleCredentialResponse
+    });
+    google.accounts.id.renderButton(
+      document.getElementById("buttonDiv"),
+      { theme: "outline", size: "large" }  // customization attributes
+    );
+    google.accounts.id.prompt(); // also display the One Tap dialog
+  }
+</script>
