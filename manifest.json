@@ -2,7 +2,7 @@
   "background_color": "#ffffff",
   "description": "Controle seu caixa diariamente",
   "dir": "ltr",
-  "display": "standalone",
+  "display": "fullscreen",
   "name": "Fluxo de Caixa Diario",
   "orientation": "any",
   "scope": "betinribeiro.github.io/",
