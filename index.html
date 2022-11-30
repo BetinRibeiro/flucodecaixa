@@ -159,7 +159,9 @@
     
     document.getElementById('tabela').classList.remove('d-none')
     document.getElementById('login').classList.add('d-none')
-    console.log("Encoded JWT ID token: " + jwt_decode(response.credential));
+    const dados = jwt_decode(response.credential)
+    console.log("Encoded JWT ID token: " + dados);
+    console.log(dados)
   }
   window.onload = function () {
     google.accounts.id.initialize({
